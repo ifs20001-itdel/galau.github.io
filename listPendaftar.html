@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Pendaftar</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include Tailwind CSS (you need to host it or link to the CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="flex justify-between bg-blue-500 p-4">
+        <a href="/registrasi.html" class="text-white font-bold">Registrasi</a>
+        <a href="/listPendaftar.html" class="text-white hover:underline">List Pendaftar</a>
+    </nav>
+    
+
+    <div class="container">
+        <h1 class="text-2xl font-bold mt-8">Data User</h1>
+        <div class="overflow-x-auto">
+            <table class="table-auto border-collapse w-full mt-4">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2 bg-gray-200 text-gray-700">Nama</th>
+                        <th class="px-4 py-2 bg-gray-200 text-gray-700">Umur</th>
+                        <th class="px-4 py-2 bg-gray-200 text-gray-700">Uang</th>
+                        <th class="px-4 py-2 bg-gray-200 text-gray-700">Delete</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr>
+                        <td id="namaUser" class="border px-4 py-2"></td>
+                        <td id="umurUser" class="border px-4 py-2"></td>
+                        <td id="uangUser" class="border px-4 py-2"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4" id="rataRataPendaftar"></div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

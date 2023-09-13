@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include Tailwind CSS (you need to host it or link to the CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* CSS to center the image */
+        #imageContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Background overlay */
+            z-index: 999;
+            /* Ensure it's on top */
+            display: none;
+        }
+
+        #memeImage {
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        /* Style for the close button */
+        #closeButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 50%;
+            padding: 5px 10px;
+            cursor: pointer;
+            z-index: 1000;
+            /* Ensure it's above the image */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="flex justify-between bg-blue-500 p-4">
+        <a href="/registrasi.html" class="text-white font-bold">Registrasi</a>
+        <a href="/listPendaftar.html" class="text-white hover:underline">List Pendaftar</a>
+    </nav>
+
+    <div class="container">
+        <h1>Registrasi</h1>
+        <form method="POST" action="/script.js" onsubmit="kirim()">
+            <div class="mb-4">
+                <label for="name" class="form-label">Nama :</label>
+                <input type="text" class="form-input" id="name" minlength="10" placeholder="Masukkan Nama Anda"
+                    name="nama">
+                <div id="errorName" class="text-red-500"></div>
+            </div>
+            <div class="mb-4">
+                <label for="umur" class="form-label">Umur :</label>
+                <input type="number" class="form-input" id="umur" placeholder="Masukkan Umur Anda" name="umur">
+                <div id="errorUmur" class="text-red-500"></div>
+            </div>
+            <div class="mb-4">
+                <label for="uang" class="form-label">Uang Saku :</label>
+                <input type="number" class="form-input" id="uang" placeholder="Berapa Uang Saku Anda" name="uang">
+                <div id="errorUang" class="text-red-500"></div>
+            </div>
+
+            <button type="button" class="submit-button" id="submitBtn" onclick="kirim()">Submit</button>
+        </form>
+
+        <!-- Add a "Play Music" button and an audio element -->
+        <div class="mt-4 relative">
+            <button onclick="playMusic()"
+                class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">Play Music</button>
+            <audio id="music" src="musik.mp3"></audio>
+            <!-- Add an image container to display the meme -->
+            <div id="imageContainer">
+                <!-- Close button -->
+                <button id="closeButton" onclick="closeImage()">X</button>
+                <img id="memeImage" src="meme.jpeg" alt="Meme">
+            </div>
+        </div>
+    </div>
+
+    <!-- Include your JavaScript file -->
+    <script src="/script.js"></script>
+
+    <script>
+        // JavaScript function to play music
+        function playMusic() {
+            var audio = document.getElementById('music');
+            var imageContainer = document.getElementById('imageContainer');
+
+            if (audio.paused) {
+                audio.play();
+                // Show the image when music is played
+                imageContainer.style.display = 'flex';
+            } else {
+                audio.pause();
+                // Hide the image when music is paused
+                imageContainer.style.display = 'none';
+            }
+        }
+
+        // JavaScript function to close the image
+        function closeImage() {
+            var imageContainer = document.getElementById('imageContainer');
+            imageContainer.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
